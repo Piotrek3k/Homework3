@@ -11,9 +11,7 @@ const calculateDiscountedPrice = (products, discount) => {
         }
         discountedProducts.push(discountedProduct)
     });
-    console.log(JSON.stringify(products))
     return discountedProducts   
-       
 }
 
 const calculateTotalPrice = (products) => {
@@ -26,19 +24,3 @@ const calculateTotalPrice = (products) => {
     return totalPrice
 }
 
-const products = [{
-    name: "banana",
-    price: 2.40
-},{
-    name: "apple",
-    price: 1.90
-},{
-    name: "orange",
-    price: 2.50
-},{
-    name: "kiwi",
-    price: 3.30
-}]
-
-console.log(JSON.stringify(calculateDiscountedPrice(products,0.1)))
-console.log(calculateTotalPrice(products))

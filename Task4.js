@@ -17,6 +17,3 @@ const factorial = (n, accumulator = 1) => {
         return power(base, exponent - 1, accumulator * base)
     }
   }
-
-
-  console.log(power(13,3))

@@ -1,46 +1,16 @@
 const getFullName = person => `${person.firstName} ${person.lastName}`
 
-const removeDuplicates = (arr) => {
-    // function to remove duplicates from an array = to find unique values
-    let result = arr.filter((value, i, self) => {
- 
-        // It returns the index of the first
-        // instance of each value
-        return i === self.indexOf(value);
-    });
- 
-    return result;
-}
-const filterUniqueWords = text => {
-    return removeDuplicates(text.split()) // TODO: sort
-}
-const getGrades = (arr) => {
-    let grades = new Array(arr.length)
-    arr.forEach(student => {
-        grades.push(student.grade)
-    });
-}
 
-const getAverage = (arr) => {
-    // function getting arithmetical average from array
-    let sum = 0
-    arr.forEach(element => {
-        sum+=element
-    });
-    return sum / arr.length
-}
+const changeToLowerCase = string => string.toLowerCase() // changing the whole text to lower case
+const splitText = string => string.split(' ')  // changing the text into an array of words
+const removeDuplicates = array => array.filter((value, i, self) => { // removing duplicates from an array 
+    return i === self.indexOf(value);
+});
+const sortArray = array => array.sort() // sorting the array
+const filterUniqueWords = text => sortArray(removeDuplicates(splitText(changeToLowerCase(text))))
+    
 const getAverageGrade = (students) => {
-    return getAverage(getGrades(students))
+    const getGrades = array => array.reduce((accumulator, student) => accumulator + student.grade,0)    // getting the sum of the grades
+    return getGrades(students)/students.length
 }
-const user1 = {
-    firstName: "Jane",
-    lastName: "Doe",
-}
-console.log(getFullName(user1))
 
-
-console.log(removeDuplicates(["Ale","Alex","John","Ale","Alex","Jane","Alex","Al"]))
-
-const numbers = [2,3,4,4,2,3,3,4,4,5,5,6,6,7,5,32,3,4,5]
-
-console.log([...new Set(numbers)])
